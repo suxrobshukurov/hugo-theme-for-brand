@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div id="content" class="site-content container">
+  <div id="main-content-row" class="tie-row main-content-row">
+    {{ partial "parts/offer.html" . }}
+    <article id="the-post" class="container-wrapper post-content">
+      {{ with .Params.H1 }}
+      <header class="entry-header-outer">
+        <div class="entry-header">
+          <h1 class="post-title entry-title">{{.}}</h1>
+        </div>
+      </header>
+      {{ end }}
+      {{ with .Content }}
+      <div class="entry-content entry clearfix">{{.}}</div>
+      {{ end }}
+    </article>
+  </div>
+  {{ partial "aside.html" . }}
+</div>
+</div>
+
+{{ end }}

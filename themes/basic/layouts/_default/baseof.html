@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html amp lang="{{ .Site.Language }}">
+{{- partial "head.html" . -}}
+
+<body id="tie-body"
+  class="home page-template-default page page-id-16 block-head-11 magazine3 magazine1 is-thumb-overlay-disabled is-desktop is-header-layout-4 sidebar-right has-sidebar post-layout-1 hide_sidebars hide_back_top_button">
+
+  <div class="background-overlay">
+    <div id="tie-container" class="site tie-container">
+      <div id="tie-wrapper">
+        {{- partial "header.html" . -}}
+        {{- block "main" . }}{{- end }}
+        {{- partial "footer.html" . -}}
+      </div>
+      <aside class=" side-aside normal-side dark-skin dark-widgetized-area appear-from-right"
+        style="visibility:hidden;">
+        <div data-height="100%" class="side-aside-wrapper has-custom-scroll">
+          <a class="close-side-aside remove big-btn light-btn">
+            <span class="screen-reader-text"></span>
+          </a>
+          <div id="mobile-container">
+            <div id="mobile-menu" class=" has-custom-menu">
+              <div class="menu-footer-container">
+                <ul id="mobile-custom-menu" class="menu" role="menubar">
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-520 tie-current-menu">
+                    <a href="{{.Site.BaseURL}}">{{.Site.Params.Name}}</a>
+                  </li>
+                  {{ $currentPage := . }}
+                  {{ range .Site.Menus.main }}
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                    {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                    {{ $active = or $active (eq .Name $currentPage.Title) }}
+                    {{ $active = or $active (and (eq .Name "Blog") (eq $currentPage.Section "post")) }}
+                    {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
+                    <a class="nav-item {{ if $active }}active{{ end }}" href="{{ .URL }}">
+                      {{$menuIcon := resources.GetMatch .Params.icon}}
+                      {{ .Name }}
+                    </a>
+                  </li>
+                  {{ end }}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  {{ $sticky := resources.Get "js/sticky-sidebar.js" | minify | fingerprint }}
+  {{ $main := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $sticky.Permalink }}" defer="defer"></script>
+  <script src="{{ $main.Permalink }}" defer="defer"></script>
+
+</body>
+
+</html>

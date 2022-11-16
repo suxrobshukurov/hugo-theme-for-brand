@@ -1,0 +1,23 @@
+<div class="main-content tie-col-md-8 tie-col-xs-12" role="main" id="main-content">
+  <div class="stream-item stream-item-above-post">
+    <div class="main-banner">
+      <img alt="{{i18n `welcome-title`}}" width="1988" height="508" class="lazyloaded"
+        src="{{ i18n `offer-baner` | default `/images/default.png`}}">
+      <div class="info-slider-text">
+        {{ with i18n "offer-title" }}
+        <div class="info-slider-text-title"> <span>{{.}}</span> </div>
+        {{ end }}
+        {{ with i18n "welcome-title" }}
+        <div class="info-slider-text-descr"> <span>{{.}}</span> </div>
+        {{ end }}
+        {{ with i18n "welcome-bonus" }}
+        <div class="info-slider-text-descr"> <span>{{.}}</span> </div>
+        {{ end }}
+        <div class="info-slider-text-btn">
+          {{ if and (.Site.Params.referral) (i18n "reg-btn")}}
+          <button data-link="{{.Site.Params.referral}}" title="{{i18n `reg-btn`}}">{{i18n "reg-btn"}}</button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>

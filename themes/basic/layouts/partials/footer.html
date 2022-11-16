@@ -1,0 +1,46 @@
+<footer id="footer" class="site-footer dark-skin dark-widgetized-area nitro-offscreen">
+  <div id="site-info" class="site-info">
+    <div class="container">
+      <div class="tie-row">
+        <div class="tie-col-md-12">
+          <div class="copyright-text copyright-text-first">
+            <img alt="{{i18n `dmca`}}" width="70px" nitro-lazy-src="/images/dmca.webp" class=" ls-is-cached lazyloaded"
+              src="/images/dmca.webp">
+            <img alt="{{i18n `beGA`}}" width="230px" nitro-lazy-src="/images/be.webp" class=" ls-is-cached lazyloaded"
+              src="/images/be.webp"><br>
+            {{i18n "footer-term"}}
+          </div>
+          {{ with .Site.Params.copyright }}
+          <div class="copyright-text copyright-text-second">{{now.Format "2006"}} {{.}}</div>
+          {{ end }}
+
+          <div class="footer-menu">
+            <ul id="menu-footer" class="menu">
+              <li id="menu-item-520"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-520 tie-current-menu">
+                <a href="{{.Site.BaseURL}}">{{.Site.Params.Name}}</a>
+              </li>
+              {{ $currentPage := . }}
+              {{ range .Site.Menus.main }}
+              <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                {{ $active = or $active (eq .Name $currentPage.Title) }}
+                {{ $active = or $active (and (eq .Name "Blog") (eq $currentPage.Section "post")) }}
+                {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
+                <a class="nav-item {{ if $active }}active{{ end }}" href="{{ .URL }}">
+                  {{$menuIcon := resources.GetMatch .Params.icon}}
+                  {{ .Name }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="go-to-top-button show-top-button" href="#tie-body">
+  <span class="tie-icon-angle-up"></span>
+  <span class="screen-reader-text">></span>
+</a>

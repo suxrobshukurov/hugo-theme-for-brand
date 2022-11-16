@@ -1,0 +1,79 @@
+<header id="theme-header"
+  class="theme-header header-layout-4 header-layout-1 main-nav-light main-nav-default-light main-nav-below no-stream-item top-nav-active top-nav-light top-nav-default-light top-nav-below top-nav-below-main-nav has-normal-width-logo has-custom-sticky-logo mobile-header-centered">
+  <div class="main-nav-wrapper">
+    <nav id="main-nav" class="main-nav header-nav default-behavior-mode fixed fixed-not-bottom fixed-pinned fixed-top">
+      <div class="container">
+        <div class="main-menu-wrapper">
+          <div id="mobile-header-components-area_1" class="mobile-header-components"></div>
+          <div class="header-layout-1-logo">
+            <div id="logo" class="image-logo">
+              <a href="{{.Site.BaseURL}}">
+                <img src="{{.Site.Params.Logo}}" alt="{{.Site.Params.Name}}">
+              </a>
+            </div>
+          </div>
+          <div id="mobile-header-components-area_2" class="mobile-header-components">
+            <ul class="components">
+              <li class="mobile-component_menu custom-menu-link">
+                <div id="mobile-menu-icon">
+                  <span class="tie-mobile-menu-icon nav-icon is-layout-3"></span>
+                  <span class="screen-reader-text">{{i18n "menu"}}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="menu-components-wrap">
+            <div id="sticky-logo" class="image-logo">
+              <a href="{{.Site.BaseURL}}">
+                <img src="{{.Site.Params.Logo}}" alt="{{.Site.Params.Name}}">
+              </a>
+            </div>
+            <div class="flex-placeholder"></div>
+            <div class="main-menu main-menu-wrap tie-alignleft">
+              <div id="main-nav-menu" class="main-menu header-menu">
+                <ul id="menu-main" class="menu" role="menubar">
+                  {{ $currentPage := . }}
+                  {{ range .Site.Menus.main }}
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                    {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                    {{ $active = or $active (eq .Name $currentPage.Title) }}
+                    {{ $active = or $active (and (eq .Name "Blog") (eq $currentPage.Section "post")) }}
+                    {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
+                    <a class="nav-item {{ if $active }}active{{ end }}" href="{{ .URL }}">
+                      {{$menuIcon := resources.GetMatch .Params.icon}}
+                      {{ .Name }}
+                    </a>
+                  </li>
+                  {{ end }}
+                </ul>
+              </div>
+            </div>
+          </div>
+          {{ if and (.Site.Params.Referral) (i18n "play-now") }}
+          <button class="bp-button signup-button affiliates-btn" data-link="{{.Site.Params.referral}}">
+            {{ i18n "play-now"}}
+          </button>
+          {{ end }}
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <nav id="top-nav" data-skin="search-in-top-nav" class="has-components top-nav header-nav live-search-parent">
+    <div class="container">
+      <div class="topbar-wrapper">
+        <div class="tie-alignleft"> </div>
+        <div class="tie-alignright">
+          <ul class="components">
+            <li class="skin-icon menu-item custom-menu-link">
+              <span class="change-skin">
+                <span class="tie-icon-moon change-skin-icon" aria-hidden="true"></span>
+                <span class="screen-reader-text"></span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

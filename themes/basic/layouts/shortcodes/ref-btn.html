@@ -1,0 +1,7 @@
+<center class="nitro-offscreen">
+  {{ if and (.Site.Params.Referral) (.Get 0) }}
+  <button class="bp-button signup-button content-btn no-amp" data-link="{{.Site.Params.referral}}">
+    {{ .Get 0}}
+  </button>
+  {{end}}
+</center>

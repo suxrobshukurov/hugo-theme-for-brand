@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div id="content" class="site-content container">
+  <div id="main-content-row" class="tie-row main-content-row">
+    {{ partial "parts/offer.html" . }}
+    <article id="the-post" class="container-wrapper post-content">
+      <header class="entry-header-outer">
+        <div class="entry-header">
+          <h1 class="post-title entry-title">{{i18n "404-title" | default "404"}}</h1>
+        </div>
+      </header>
+      <div class="entry-content entry clearfix">
+        <h2>{{i18n "404-subtitle"}}</h2>
+        <a href="{{.Site.BaseURL}}">{{i18n "404-go-home"}}</a>
+      </div>
+
+    </article>
+  </div>
+  {{ partial "aside.html" . }}
+</div>
+</div>
+
+{{ end }}

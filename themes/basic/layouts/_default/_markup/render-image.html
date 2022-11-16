@@ -1,0 +1,8 @@
+<div class="wp-block-image">
+  <figure class="aligncenter size-full">
+    <img width="840" height="382" alt="{{
+      .Text }}" sizes="(max-width: 840px) 100vw, 840px" {{ with .Title}} title="{{ . }}" {{ end }}
+      src="{{ .Destination | safeURL }}" />
+    {{ with .Title}} <figcaption>{{.}}</figcaption>{{ end }}
+  </figure>
+</div>

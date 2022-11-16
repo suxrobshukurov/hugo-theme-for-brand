@@ -1,0 +1,42 @@
+<aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky is-alreay-loaded" id="sidebar"
+  aria-label="Primäre Seitenleiste">
+  <div class="theiaStickySidebar" id="sc">
+    <div id="text-html-widget-4" class="container-wrapper widget text-html">
+      <div style="text-align:center;">
+        <div class="app-widget">
+          {{ with i18n "side-app-title" }}
+          <p style="font-size:20px;">{{.}}</p>
+          {{ end }}
+          <img alt="{{ i18n `side-app-img-src`}}" class=" ls-is-cached lazyloaded"
+            src="/images/vulkan-vegas-mobile.webp">
+          <div class="vegas-verfugbar">
+            <div class="ios">
+              <img alt="{{i18n `side-ios-verf`}}" width="200px" class=" ls-is-cached lazyloaded"
+                src="/images/apple-ios-verfugbar-logo.webp"></button>
+            </div><br>
+            <div class="android">
+              <img width="200px" alt="{{i18n `side-android-verf`}}" class=" ls-is-cached lazyloaded"
+                src="/images/google-play-download-logo.webp"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    {{ with .Content }}
+    <div id="lpwtoc_widget-3" class="container-wrapper widget widget_lpwtoc_widget">
+      <div class="lwptoc lwptoc-baseItems lwptoc-inherit" data-smooth-scroll="1" data-smooth-scroll-offset="24"
+        data-lwptoc-initialized="1">
+        <div class="lwptoc_i">
+          {{ with i18n "side-title" }}
+          <div class="lwptoc_header" style="font-size:15px;"> <b class="lwptoc_title">{{.}}</b> </div>
+          {{ end }}
+          <div class="lwptoc_items lwptoc_items-visible"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    {{ end }}
+
+  </div>
+</aside>

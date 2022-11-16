@@ -1,0 +1,25 @@
+{{$question := .Get "question"}}
+{{$answer := .Get "answer"}}
+
+{{ if and ($question) ($answer)}}
+<div class="ss-faq-block ss-faq-css">
+  <div class="ss-faq-item">
+    <h3>{{$question | safeHTML}}</h3>
+    <div class="ss-answer ss-faq-css">{{$answer | safeHTML}}</div>
+  </div>
+</div>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "{{$question}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{$answer}}"
+      }
+    }]
+  }
+</script>
+{{ end }}

@@ -1,0 +1,45 @@
+# header
+[play-now]
+  other = "JETZT SPIELEN!"
+[menu]
+  other = "Menü"
+
+#footer
+[footer-term]
+  other = "Alle Glücksspieldienste werden von der Regierung von Curacao reguliert."
+[dmca]
+  other = "DMCA.com Protection Status"
+[beGA]
+  other = "BeGambleAware.org Badge"
+
+# sidebar 
+[side-title]
+  other = "Inhaltsverzeichnis"
+[side-app-title]
+  other = "iOS und Android verfügbar"
+[side-app-img-src]
+  other = "Vulkan Vegas Login Mobile App"
+[side-ios-verf]
+  other = "iOS Verfügbar"
+[side-android-verf]
+  other = "Android Mobile App"
+
+#offer block
+[reg-btn]
+  other = "Registrieren"
+[offer-title]
+  other = "offer"
+[welcome-title]
+  other = "Willkommensboni"
+[welcome-bonus]
+  other = "bis zu 1.000 € + 125 freispiele"
+[offer-baner]
+  other = '/images/vulkan-vegas-banner.webp'
+
+## 404
+[404-title]
+  other = "404"
+[404-subtitle]
+  other = "Oops! Die Seite wurde nicht gefunden."
+[404-go-home]
+  other = "Leider können wir nicht finden, was Sie suchen. Vielleicht zur Startseite gehen"

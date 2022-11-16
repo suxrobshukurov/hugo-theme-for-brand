@@ -1,0 +1,31 @@
+baseURL = '/'
+languageCode = 'de'
+title = 'Vulkan Vegas Online Casino - Das Zuverlässigste Casino Deutschlands'
+theme = 'basic'
+DefaultContentLanguage = 'de'
+
+[params]
+  favicon = 'images/favicons/favicon.ico'
+  logo = '/images/logo-vegas.webp'
+  defaultImg = '/images/default.png'
+  description = "Vulkan Vegas ⚡ Online Casino Willkommensbonus 1000 € + 125 FS. Zu 2000 € Cashback! Zu 90 % Einzahlung pro Woche!"
+  name = 'Vulkan Vegas'
+  copyright = " © Urheberrechte Alle Rechte Vorbehalten  |  Vulkan Vegas Deutschland"
+  # email = "contact@bestmoneyslots.com"
+  referral = 'https://redirectid.com/click.php?key=42t5uehm7vx8tk6nibtr&split='
+  offer = 'bis zu 1.000 € + 125 freispiele'
+
+
+[languages.de]
+  languageName = 'Deutsch'
+  weight = 1
+
+[[languages.de.menu.main]]
+  name = 'Startseite'
+  pageref = '/'
+  weight = 1
+
+[[languages.de.menu.footer]]
+  name = 'Startseite'
+  pageref = '/'
+  weight = 1

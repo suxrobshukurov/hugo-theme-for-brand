@@ -1,0 +1,67 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="description"
+  content="{{if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ with .Params.description }}{{ . }}{{else}}{{$.Site.Params.description}}{{ end }}{{ end }}" />
+{{if .Draft }}
+<meta name="robots" content="noindex, nofollow" />
+{{else}}
+<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+{{end}}
+
+
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<link rel="alternate" href="http:{{ .Permalink }}" hreflang="x-default">
+
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="http:{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+{{ end }}
+{{ end }}
+
+<link rel="apple-touch-icon" href="{{ .Site.BaseURL }}images/favicons/icon-114.png">
+<link rel="apple-touch-icon" sizes="57x57" href="{{ .Site.BaseURL }}images/favicons/icon-57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ .Site.BaseURL }}images/favicons/icon-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}images/favicons/icon-72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ .Site.BaseURL }}images/favicons/icon-144.png">
+<link rel="image_src" href="{{ .Site.BaseURL }}images/favicons/logo-wide.png">
+
+<meta name="theme-color" content="#f4f9fc">
+{{ with .Site.Params.Author }}
+<meta name="author" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.Copyright }}
+<meta name="copyright" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.Author }}
+<meta name="publisher" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.Email }}
+<meta name="publisher-email" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.BaseURL }}
+<meta name="publisher-url" content="{{ . }}">
+{{ end }}
+
+<meta name="HandheldFriendly" content="True">
+<meta property="og:type" content="article">
+{{ with .Site.Params.BaseURL }}
+<meta property="og:url" content="{{ . }}">
+{{ end }}
+{{ with .Site.Title }}
+<meta property="og:title" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.Favicon}}
+<meta property="og:image" content="{{$.Site.BaseURL }}{{.}}">
+{{ end }}
+
+<meta name="twitter:card" content="summary">
+{{ with .Site.Title }}
+<meta name="twitter:title" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.Description }}
+<meta name="twitter:description" content="{{.}}">
+{{end}}
+{{ with .Site.Params.Favicon}}
+<meta name="twitter:image" content="{{$.Site.BaseURL }}{{.}}">
+{{ end }}

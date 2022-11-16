@@ -1,0 +1,8 @@
+<head>
+  {{ partial "head/meta.html" . }}
+  {{ partial "head/title.html" . }}
+  {{ partial "head/link.html" . }}
+  {{ partial "head/fonts.html" . }}
+  {{ $main := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $main.Permalink }}" type="text/css">
+</head>
